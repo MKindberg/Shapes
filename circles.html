@@ -16,7 +16,7 @@ body {
     var s = document.getElementById("canvas");
         document.body.style.backgroundColor = 'rgb(' + Math.random()*255 + ',' +  Math.random()*255 + ',' + Math.random()*255 + ')';
         var taken = [];
-        max_circles = screen.width*screen*height/(30*30) > 350? 350: screen.width*screen*height/(30*30);
+        max_circles = screen.width*screen.height/(30*30) > 350? 350: screen.width*screen.height/(30*30);
         for (i = 0; i < max_circles; i++) { 
               diameter = Math.random()*500+50;
               var x = 0;
