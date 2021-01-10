@@ -1,0 +1,47 @@
+<head>
+  <style>
+body {
+  overflow: hidden; /* Hide scrollbars */
+}
+.circle {
+  border-radius: 50%;
+}
+  </style>
+</head>
+<body>
+  <div id="canvas"></div>
+
+
+  <script>
+    var s = document.getElementById("canvas");
+        document.body.style.backgroundColor = 'rgb(' + Math.random()*255 + ',' +  Math.random()*255 + ',' + Math.random()*255 + ')';
+        var taken = [];
+        for (i = 0; i < 350; i++) { 
+              diameter = Math.random()*500+50;
+              var x = 0;
+              var y = 0;
+              while (true) {
+                    x = Math.random() * screen.width - 50;
+                    y = Math.random() * screen.height - 50;
+                    var found = false
+                    for(t = 0; t < taken.length; ++t) {
+                          a = 30;
+                          if (taken[t][0] > x-a && taken[t][0] < x+a && taken[t][1] > y-a && taken[t][1] < y+a){
+                                found = true;
+                              }
+                        }
+                    if (!found){
+                          taken.push([x, y])
+                          break
+                        }
+                  }
+              pos_top = 'top: ' + y + ';';
+              pos_left = 'left: ' + x + ';';
+              color = 'background-color: rgba(' + Math.random()*255 + ',' +  Math.random()*255 + ',' + Math.random()*255 + ',' + Math.random() * 155 + 100 + ');';
+              size = 'width: ' + diameter + '; height: ' + diameter + ';';
+              html = '<div class="circle" style=" position: absolute; ' + pos_top + pos_left + color + size + '"></div>';
+
+              s.innerHTML += html;
+            }
+  </script>
+</body>
