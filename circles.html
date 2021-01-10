@@ -16,14 +16,14 @@ body {
     var s = document.getElementById("canvas");
         document.body.style.backgroundColor = 'rgb(' + Math.random()*255 + ',' +  Math.random()*255 + ',' + Math.random()*255 + ')';
         var taken = [];
-        max_circles = screen.width*screen.height/(30*30) > 350? 350: screen.width*screen.height/(30*30);
+        max_circles = screen.width*screen.height/(30*30)/3
         for (i = 0; i < max_circles; i++) { 
               diameter = Math.random()*500+50;
               var x = 0;
               var y = 0;
               while (true) {
-                    x = Math.random() * screen.width - 50;
-                    y = Math.random() * screen.height - 50;
+                    x = Math.random() * screen.width*4 - (screen.width * 0.25)
+                    y = Math.random() * screen.height*4 - (screen.height*0.25)
                     var found = false
                     for(t = 0; t < taken.length; ++t) {
                           a = 30;
