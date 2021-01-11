@@ -1,0 +1,34 @@
+<head>
+  <style>
+body {
+  overflow: hidden; /* Hide scrollbars */
+}
+.circle {
+  border-radius: 50%;
+  position: absolute;
+}
+  </style>
+</head>
+<body>
+  <h1>Click me!</h1>
+  <script>
+    function onClick(event)
+        {
+              html = "";
+              var ratio = window.devicePixelRatio || 1;
+              w = screen.width * ratio;
+              h = screen.height * ratio;
+              s = Math.max(w, h)
+              for(i = 2*s; i > 0; i -= s/10) {
+                    pos_left = 'left: ' + (event.clientX-i/2) + 'px; ';
+                    pos_top = 'top: ' + (event.clientY-i/2) + 'px; ';
+                    color = 'background-color: rgb(' + Math.random()*255 + ',' +  Math.random()*255 + ',' + Math.random()*255 + ');';
+                    size = 'height: ' + i + 'px; width: ' + i + 'px; '
+
+                    html += '<div class="circle" style="' + pos_left + pos_top + color + size + '"></div>'
+                  }
+              document.body.innerHTML = html;
+            }
+        document.addEventListener("click", onClick);
+  </script>
+</body>
