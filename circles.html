@@ -5,15 +5,12 @@ body {
 }
 .circle {
   border-radius: 50%;
+  position: absolute;
 }
   </style>
 </head>
 <body>
-  <div id="canvas"></div>
-
-
   <script>
-    var s = document.getElementById("canvas");
         document.body.style.backgroundColor = 'rgb(' + Math.random()*255 + ',' +  Math.random()*255 + ',' + Math.random()*255 + ')';
         var ratio = window.devicePixelRatio || 1;
         w = screen.width * ratio;
@@ -44,9 +41,9 @@ body {
               pos_left = 'left: ' + x + ';';
               color = 'background-color: rgba(' + Math.random()*255 + ',' +  Math.random()*255 + ',' + Math.random()*255 + ',' + Math.random() * 155 + 100 + ');';
               size = 'width: ' + diameter + '; height: ' + diameter + ';';
-              html = '<div class="circle" style=" position: absolute; ' + pos_top + pos_left + color + size + '"></div>';
+              html = '<div class="circle" style="' + pos_top + pos_left + color + size + '"></div>';
 
-              s.innerHTML += html;
+              document.body.innerHTML += html;
             }
   </script>
 </body>
